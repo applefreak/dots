@@ -21,14 +21,17 @@ let g:ctrlp_map = '<c-p>'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set wildignore+=*/node_modules/*
 
+syntax on
 set ruler
 set number relativenumber
-
 set expandtab
 set shiftwidth=4
 set softtabstop=4
+
 if has("autocmd")
   filetype indent plugin on
 endif
 
-syntax on
+" Custom Commands
+command FormatJson %!python -m json.tool
+
