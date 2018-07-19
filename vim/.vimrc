@@ -8,7 +8,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/yajs.vim'
-Plug 'nikvdp/ejs-syntax'
 Plug 'mxw/vim-jsx'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
@@ -32,6 +31,9 @@ set expandtab
 set shiftwidth=4
 set softtabstop=4
 set autoread
+
+" sets ejs as html
+au BufNewFile,BufRead *.ejs set filetype=html
 
 if has("autocmd")
   filetype indent plugin on
