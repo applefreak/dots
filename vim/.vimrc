@@ -11,6 +11,7 @@ Plug 'othree/yajs.vim'
 Plug 'mxw/vim-jsx'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'vimwiki/vimwiki'
 " Plug 'vim-scripts/YankRing.vim'
 call plug#end()
 
