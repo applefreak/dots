@@ -25,13 +25,17 @@ let g:ctrlp_map = '<c-p>'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set wildignore+=*/node_modules/*
 
-syntax on
-set ruler
-set number relativenumber
 set expandtab
 set shiftwidth=4
 set softtabstop=4
+
+syntax on
+set ruler
+set number relativenumber
 set autoread
+set hlsearch
+set ignorecase
+set smartcase
 
 " sets ejs as html
 au BufNewFile,BufRead *.ejs set filetype=html
@@ -50,3 +54,6 @@ command FormatJson %!python -m json.tool
 " https://blog.petrzemek.net/2016/04/06/things-about-vim-i-wish-i-knew-earlier/
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+
+" Press Space to turn off highlighting and clear any message already displayed.
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
