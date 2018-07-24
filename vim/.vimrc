@@ -1,16 +1,19 @@
 call plug#begin('~/.vim/plugged')
+Plug '/usr/local/opt/fzf'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tpope/vim-unimpaired'
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'mbbill/undotree'
+Plug 'mxw/vim-jsx'
+Plug 'othree/yajs.vim'
+Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'pangloss/vim-javascript'
-Plug 'othree/yajs.vim'
-Plug 'mxw/vim-jsx'
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
 Plug 'vimwiki/vimwiki'
 " Plug 'vim-scripts/YankRing.vim'
 call plug#end()
@@ -23,7 +26,7 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 " Ctrl-p configs
 let g:ctrlp_map = '<c-p>'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-set wildignore+=*/node_modules/*
+set wildignore+=*/node_modules/*,*/min/*,*.min.*
 
 set expandtab
 set shiftwidth=4
