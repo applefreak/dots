@@ -57,3 +57,6 @@ noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
 " Press Space to turn off highlighting and clear any message already displayed.
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
+" rebinds vimwiki toggle list
+nnoremap <leader>t :VimwikiToggleListItem<CR>
