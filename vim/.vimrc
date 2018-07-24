@@ -16,6 +16,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vimwiki/vimwiki'
+" Plug 'itchyny/lightline.vim'
 " Plug 'vim-scripts/YankRing.vim'
 call plug#end()
 
@@ -23,6 +24,13 @@ call plug#end()
 let g:airline_theme='distinguished'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+set noshowmode
+
+" Lightline configs
+" set laststatus=2
+" let g:lightline = {
+"             \ 'colorscheme': 'wombat'
+"             \ }
 
 " Ctrl-p configs
 let g:ctrlp_map = '<c-p>'
