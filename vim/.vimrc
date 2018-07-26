@@ -72,3 +72,5 @@ nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 " rebinds vimwiki toggle list
 nnoremap <leader>t :VimwikiToggleListItem<CR>
+
+let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro rnu'
