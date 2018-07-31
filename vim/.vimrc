@@ -49,6 +49,9 @@ set hlsearch
 set ignorecase
 set smartcase
 
+" Make backspace behave normally
+set backspace=indent,eol,start
+
 " sets ejs as html
 " au BufNewFile,BufRead *.ejs set filetype=html
 
