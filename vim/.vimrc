@@ -50,7 +50,7 @@ set ignorecase
 set smartcase
 
 " sets ejs as html
-au BufNewFile,BufRead *.ejs set filetype=html
+" au BufNewFile,BufRead *.ejs set filetype=html
 
 if has("autocmd")
   filetype indent plugin on
