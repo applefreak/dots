@@ -73,6 +73,12 @@ noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 " Press Space to turn off highlighting and clear any message already displayed.
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
+" <C-j> & <C-k> to move up and down the complete popup list
+inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
+inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <expr> <C-j>      pumvisible() ? "\<C-n>" : "\<Down>"
+inoremap <expr> <C-k>      pumvisible() ? "\<C-p>" : "\<Up>"
+
 " rebinds vimwiki toggle list
 nnoremap <leader>t :VimwikiToggleListItem<CR>
 
