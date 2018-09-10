@@ -10,12 +10,16 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vimwiki/vimwiki'
+Plug 'jpalardy/vim-slime'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 " Plug 'itchyny/lightline.vim'
 " Plug 'vim-scripts/YankRing.vim'
 call plug#end()
@@ -25,6 +29,8 @@ let g:airline_theme='distinguished'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 set noshowmode
+
+let g:slime_target = "tmux"
 
 " Lightline configs
 " set laststatus=2
@@ -51,6 +57,7 @@ set smartcase
 
 " Make backspace behave normally
 set backspace=indent,eol,start
+set redrawtime=10000
 
 " sets ejs as html
 " au BufNewFile,BufRead *.ejs set filetype=html
@@ -81,5 +88,10 @@ inoremap <expr> <C-k>      pumvisible() ? "\<C-p>" : "\<Up>"
 
 " rebinds vimwiki toggle list
 nnoremap <leader>t :VimwikiToggleListItem<CR>
+" let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
+
+" Markdown settings
+let g:vim_markdown_new_list_item_indent = 2
+let g:vim_markdown_folding_disabled = 1
 
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro rnu'
