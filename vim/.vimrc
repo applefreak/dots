@@ -66,6 +66,19 @@ if has("autocmd")
   filetype indent plugin on
 endif
 
+" Persistent undo
+let vimDir = '$HOME/.vim'
+let &runtimepath.=','.vimDir
+
+" Keep undo history across sessions by storing it in a file
+if has('persistent_undo')
+    let undoDir = expand(vimDir . '/undodir')
+    " Create dirs
+    call system('mkdir ' . undoDir)
+    let &undodir = undoDir
+    set undofile
+endif
+
 " Custom Commands
 command FormatJson %!python -m json.tool
 
