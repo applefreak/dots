@@ -102,7 +102,7 @@ inoremap <expr> <C-k>      pumvisible() ? "\<C-p>" : "\<Up>"
 
 " rebinds vimwiki toggle list
 nnoremap <leader>t :VimwikiToggleListItem<CR>
-" let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
 
 " Markdown settings
 let g:vim_markdown_new_list_item_indent = 2
