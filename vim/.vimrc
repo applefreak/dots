@@ -20,6 +20,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'jpalardy/vim-slime'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'zimbatm/haproxy.vim'
 " Plug 'itchyny/lightline.vim'
 " Plug 'vim-scripts/YankRing.vim'
 call plug#end()
