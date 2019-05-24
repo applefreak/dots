@@ -48,6 +48,9 @@ set expandtab
 set shiftwidth=4
 set softtabstop=4
 
+autocmd Filetype yaml setlocal shiftwidth=2 softtabstop=2
+autocmd Filetype yml setlocal shiftwidth=2 softtabstop=2
+
 syntax on
 set ruler
 set number relativenumber
