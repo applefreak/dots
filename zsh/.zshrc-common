@@ -1,0 +1,27 @@
+# source this file in .zshrc right after exporting ZSH
+
+# oh-my-zsh theme
+ZSH_THEME="lambda"
+
+plugins=(git history-substring-search)
+
+source $ZSH/oh-my-zsh.sh
+export EDITOR='vim'
+
+bindkey -v # vi key bindings
+
+# history search
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
+bindkey -M viins '\e.' insert-last-word # esc-. to insert last word
+
+alias ssh="TERM=xterm-256color ssh"
+alias firefox="/Applications/Firefox.app/Contents/MacOS/firefox-bin -p"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
