@@ -45,6 +45,9 @@ let g:ctrlp_map = '<c-p>'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set wildignore+=*/node_modules/*,*/min/*,*.min.*
 
+" vim-rooter for nodejs projects
+let g:rooter_patterns = ['package.json']
+
 set expandtab
 set shiftwidth=4
 set softtabstop=4
