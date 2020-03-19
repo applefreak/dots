@@ -75,6 +75,7 @@ set redrawtime=10000
 
 " sets ejs as html
 au BufNewFile,BufRead *.ejs set filetype=html
+au BufNewFile,BufRead *.svelte set filetype=html
 
 if has("autocmd")
   filetype indent plugin on
