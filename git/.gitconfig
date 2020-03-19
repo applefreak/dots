@@ -1,0 +1,5 @@
+[user]
+	name = Poyu Chen
+	email = me@poyu.xyz
+[core]
+	excludesfile = /Users/applefreak/.gitignore_global
