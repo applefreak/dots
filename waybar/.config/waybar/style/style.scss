@@ -1,0 +1,79 @@
+/*
+window#waybar.background..DP-2:dir(ltr)
+  decoration:dir(ltr)
+  box.horizontal:dir(ltr)
+    box.horizontal.modules-left:dir(ltr)
+      widget:dir(ltr)
+        label#custom-user:dir(ltr)
+      widget:dir(ltr)
+        box#taskbar.horizontal:dir(ltr)
+          button.flat:dir(ltr)
+            box.horizontal:dir(ltr)
+              [label:dir(ltr)]
+              image:dir(ltr)
+              [label:dir(ltr)]
+          button.flat.maximized.active:dir(ltr)
+            box.horizontal:dir(ltr)
+              [label:dir(ltr)]
+              image:dir(ltr)
+              [label:dir(ltr)]
+    box.horizontal.modules-center:dir(ltr)
+    box.horizontal.modules-right:dir(ltr)
+      widget:dir(ltr)
+        label#pulseaudio:dir(ltr)
+      widget:dir(ltr)
+        label#clock:dir(ltr)
+*/
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: sans-serif;
+    font-size: 18px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: transparent;
+
+    &.hidden {
+        opacity: 0.2;
+    }
+}
+
+box.horizontal.modules-left,
+box.horizontal.modules-right {
+    margin: 0.85rem;
+    color: #505050;
+    padding: 0.2rem 0.5rem;
+    background-color: #efefef;
+    border-radius: 4px;
+}
+
+box.horizontal.modules-right {
+    label {
+        padding: 0 0.85rem;
+    }
+}
+
+box.horizontal.modules-left {
+    #custom-user {
+        margin-right: 0.85rem;
+    }
+
+    #taskbar {
+        button {
+            border-bottom: 2px solid transparent;
+
+            &:hover {
+                background-color: unset;
+            }
+            &.active {
+                border-bottom: 2px solid #505050;
+            }
+            &.minimize {
+                border-bottom: 2px solid #909090;
+            }
+        }
+    }
+}
