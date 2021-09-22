@@ -37,6 +37,7 @@ let g:airline_theme='distinguished'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 set noshowmode
+set bg=dark
 
 let g:slime_target = "tmux"
 
