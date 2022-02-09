@@ -58,6 +58,8 @@ let g:rooter_patterns = ['package.json']
 set expandtab
 set shiftwidth=4
 set softtabstop=4
+set background=dark
+set t_Co=256
 
 autocmd Filetype yaml setlocal shiftwidth=2 softtabstop=2
 autocmd Filetype yml setlocal shiftwidth=2 softtabstop=2
