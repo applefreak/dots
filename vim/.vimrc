@@ -5,16 +5,19 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin('~/.vim/plugged')
-Plug '/usr/local/opt/fzf'
 Plug 'airblade/vim-rooter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'godlygeek/tabular'
 Plug 'jpalardy/vim-slime'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'karolbelina/uxntal.vim'
 Plug 'mattn/emmet-vim'
 Plug 'mbbill/undotree'
+Plug 'mxw/vim-jsx'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
 Plug 'terryma/vim-multiple-cursors'
@@ -28,9 +31,9 @@ Plug 'tpope/vim-vinegar'
 Plug 'vhda/verilog_systemverilog.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-syntastic/syntastic'
 Plug 'vimwiki/vimwiki'
 Plug 'zimbatm/haproxy.vim'
-Plug 'karolbelina/uxntal.vim'
 " Plug 'itchyny/lightline.vim'
 " Plug 'vim-scripts/YankRing.vim'
 call plug#end()
@@ -39,6 +42,7 @@ call plug#end()
 let g:airline_theme='distinguished'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#tabline#buffer_nr_show = 1
 set noshowmode
 set bg=dark
 
@@ -56,7 +60,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set wildignore+=*/node_modules/*,*/min/*,*.min.*
 
 " vim-rooter for nodejs projects
-let g:rooter_patterns = ['package.json']
+let g:rooter_patterns = ['node_modules']
 
 set expandtab
 set shiftwidth=4
@@ -100,6 +104,10 @@ if has('persistent_undo')
     set undofile
 endif
 
+" better whitespace
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
+
 " Custom Commands
 command FormatJson %!python -m json.tool
 
@@ -122,7 +130,13 @@ inoremap <expr> <C-k>      pumvisible() ? "\<C-p>" : "\<Up>"
 
 " rebinds vimwiki toggle list
 nnoremap <leader>t :VimwikiToggleListItem<CR>
-let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
+" let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
+
+map <leader>D :put =strftime('%Y-%m-%d')<CR>
+
+" find and replace currently selected
+" https://stackoverflow.com/questions/676600/vim-search-and-replace-selected-text
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 " Markdown settings
 let g:vim_markdown_new_list_item_indent = 2
@@ -140,6 +154,8 @@ command! -bang -nargs=* Rg
 
 " search for visually selected text http://vim.wikia.com/wiki/Search_for_visually_selected_text
 vnoremap // y/<C-R>"<CR>
+" * don't jump to next occurance https://stackoverflow.com/questions/4256697/vim-search-and-highlight-but-do-not-jump
+nnoremap * :keepjumps normal! mi*`i<CR>
 
 " move lines http://vim.wikia.com/wiki/Moving_lines_up_or_down
 nnoremap <A-j> :m .+1<CR>==
@@ -159,6 +175,34 @@ au CursorHold,CursorHoldI * checktime
 function! s:find_git_root()
   return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
 endfunction
+
+" jump to last edit position
+augroup resCur
+  autocmd!
+  autocmd BufReadPost * call setpos(".", getpos("'\""))
+augroup END
+
+" syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_generic = 1
+let g:syntastic_javascript_eslint_exec = '/bin/ls'
+let g:syntastic_javascript_eslint_exe = 'npx slint'
+let g:syntastic_javascript_eslint_args='-f compact'
+
+let g:jsx_ext_required = 1
+
+" make syntastic passive for html
+" let g:syntastic_mode_map = { "mode": "active", "passive_filetypes": ["html"] }
+let g:syntastic_mode_map = { "mode": "passive" }
 
 command! ProjectFiles execute 'Files' s:find_git_root()
 
